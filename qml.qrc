@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>res/heartImage.png</file>
+        <file>MemeText.qml</file>
+        <file>res/barbossa.png</file>
+    </qresource>
+</RCC>
