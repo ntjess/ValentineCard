@@ -6,7 +6,7 @@ Text {
     styleColor: "black"
     style: Text.Outline
     font.pointSize: 30
-    width: mainWindow.width / 2
+    width: imgMove.width
     horizontalAlignment: Text.AlignHCenter
 }
 

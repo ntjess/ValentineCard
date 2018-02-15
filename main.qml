@@ -1,27 +1,33 @@
 import QtQuick 2.9
+import QtQuick.Controls 2.2
 import QtQuick.Window 2.2
 
 Window {
     property double anglePerPixel: 180 / mainWindow.width
     property bool enableOuterText: true
     property bool enableInnerText: true
+    property int margin: 50
 
     id: mainWindow
+
     visible: true
-    width: 1000
-    height: 454
-    maximumHeight: height
-    minimumHeight: height
+    height: 475
+    width: height * 2
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
     title: qsTr("Valentine's Gift")
     color: "transparent"
+    Component.onCompleted: {
+        setX(Screen.width / 2 - width / 2)
+        setY(Screen.height / 2 - height / 2)
+    }
 
     Image {
         id: imgMove
         anchors.right: parent.right
-        height: parent.height
+        y: parent.y + mainWindow.margin
+        height: parent.height - 2 * mainWindow.margin
+        width: height
         source: "/res/heartImage.png"
-        fillMode: Image.PreserveAspectFit
         z: 100
 
         MemeText {
@@ -56,10 +62,10 @@ Window {
     Image {
         id: imgStationary
         anchors.right: parent.right
-        anchors.top: parent.top
-        height: parent.height
+        height: imgMove.height
+        width: imgMove.width
         source: "/res/barbossa.png"
-        fillMode: Image.PreserveAspectFit
+        y: imgMove.y
         z: 0
 
         MemeText {
